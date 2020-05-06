@@ -6,11 +6,12 @@ class Colaborador {
 
     adiciona(colaborador, res) {
 
-        const dataInsert = moment().format(); //new Date();
+        const idCargo = parseInt(colaborador.idCargo);
         const dataNascimento = moment(colaborador.dataNascimento, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS');
+        const dataInsert = moment().format(); //new Date();
 
-        const nomeEhValido = (colaborador.nome).trim().length >= 5;
-        const cargoEhValido = (colaborador.cargo).trim().length >= 3;
+        const nomeEhValido = (colaborador.nome).trim().length >= 5; // 
+        const cargoEhValido = Number.isInteger(idCargo);
 
         // criar validacao para dataNascimento !!
 
@@ -21,9 +22,9 @@ class Colaborador {
                 mensagem: 'Insira um nome completo'
             },
             {
-                nome: 'cargo',
+                nome: 'idCargo',
                 valido: cargoEhValido,
-                mensagem: 'Insira um cargo 3 ou mais caracteres'
+                mensagem: 'Insira um código de cargo válido'
             }
         ]
 
@@ -35,15 +36,13 @@ class Colaborador {
             res.status(400).json(erros);
         }
         else {
-
             const nome = colaborador.nome.trim();
-            const cargo = colaborador.cargo.trim();
 
-            const colaboradorComNascimento = { ...colaborador, nome, cargo, dataNascimento, dataInsert };
+            const dadosInsert = { ...colaborador, nome, idCargo, dataNascimento, dataInsert };
 
             const sql = 'INSERT INTO Colaborador SET ?'
 
-            conexao.query(sql, colaboradorComNascimento, (erro, resultados) => {
+            conexao.query(sql, dadosInsert, (erro, resultados) => {
 
                 if (erro) {
                     res.status(400).json(erro);

@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaiconMoreno/desafioTon.git"
+    "url": "git+https://github.com/MaiconMoreno/Desafio2_TonTecnologia.git"
   },
   "author": "Maicon Moreno",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaiconMoreno/desafioTon/issues"
+    "url": "https://github.com/MaiconMoreno/Desafio2_TonTecnologia/issues"
   },
-  "homepage": "https://github.com/MaiconMoreno/desafioTon#readme",
+  "homepage": "https://github.com/MaiconMoreno/Desafio2_TonTecnologia#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
