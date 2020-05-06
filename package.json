@@ -1,0 +1,30 @@
+{
+  "name": "projeto-nodejs-rest",
+  "version": "1.0.0",
+  "description": "Desafio TON - Tecnologia RC",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaiconMoreno/desafioTon.git"
+  },
+  "author": "Maicon Moreno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaiconMoreno/desafioTon/issues"
+  },
+  "homepage": "https://github.com/MaiconMoreno/desafioTon#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "moment": "^2.25.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
