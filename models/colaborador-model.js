@@ -47,7 +47,7 @@ class Colaborador {
                 if (erro) {
                     res.status(400).json(erro);
                 } else {
-                    res.status(201).json({ ...colaborador });
+                    res.status(201).json({ ...colaborador, ...resultados });
                 }
             })
         }
@@ -82,7 +82,6 @@ class Colaborador {
         })
     }
 
-    // altera todos os dados 
     altera(id, valores, res) {
 
         if (valores.dataNascimento) {
