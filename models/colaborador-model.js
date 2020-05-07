@@ -10,7 +10,7 @@ class Colaborador {
         const dataNascimento = moment(colaborador.dataNascimento, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS');
         const dataInsert = moment().format(); //new Date();
 
-        const nomeEhValido = (colaborador.nome).trim().length >= 5; // 
+        const nomeEhValido = (colaborador.nome).trim().length >= 5;
         const cargoEhValido = Number.isInteger(idCargo);
 
         // criar validacao para dataNascimento !!
@@ -47,7 +47,7 @@ class Colaborador {
                 if (erro) {
                     res.status(400).json(erro);
                 } else {
-                    res.status(201).json(resultados);
+                    res.status(201).json({ ...colaborador });
                 }
             })
         }
@@ -96,7 +96,7 @@ class Colaborador {
             if (erro) {
                 res.status(400).json(erro);
             } else {
-                res.status(201).json(resultados);
+                res.status(201).json({ ...valores, id });
             }
 
         })
@@ -107,7 +107,7 @@ class Colaborador {
 
         const sql = 'DELETE FROM Colaborador WHERE id=?';
 
-        conexao.query(sql, id, (erro, resultador) => {
+        conexao.query(sql, id, (erro, resultados) => {
 
             if (erro) {
                 res.status(400).json(erro);

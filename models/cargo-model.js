@@ -35,7 +35,7 @@ class Cargo {
                     res.status(400).json(erro);
                 }
                 else {
-                    res.status(201).json(resultados);
+                    res.status(201).json({ ...cargo });
                 }
             })
 
@@ -86,7 +86,7 @@ class Cargo {
                 res.status(400).json(erro);
             }
             else {
-                res.status(201).json(resultados);
+                res.status(201).json({ valores, id });
             }
         })
     }
