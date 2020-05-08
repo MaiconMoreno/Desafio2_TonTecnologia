@@ -1,5 +1,7 @@
 const Colaborador = require('../models/colaborador-model');
 
+
+// criaçao das controllers 
 module.exports = app => {
 
     app.get('/colaborador', (req, res) => {

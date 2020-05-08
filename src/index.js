@@ -15,6 +15,7 @@ conexao.connect((erro => {
     } else {
         console.log('Conectado com sucesso!')
         //tabelas.init(conexao);   
+
         const porta = 3000;
 
         app.listen(porta, () => looger.info(`Servidor online, rodando na porta ${porta}`));

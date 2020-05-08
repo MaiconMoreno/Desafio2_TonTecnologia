@@ -3,6 +3,7 @@ class Tabelas {
     init(conexao) {
         this.conexao = conexao;
 
+        // não é mais necessário
         // this.verificarTabelaCargos
         //this.verificaTabelaColaborador();
 
