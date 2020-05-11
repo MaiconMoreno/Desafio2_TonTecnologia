@@ -9,12 +9,14 @@ class Colaborador {
 
         // conversao dos valores
         const idCargo = parseInt(colaborador.idCargo);
-        const dataNascimento = moment(colaborador.dataNascimento, 'DD-MM-YYYY').format('DD/MM/YYYY');
+        const dataNascimento = moment(colaborador.dataNascimento, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
 
         // checando os valores 
+        const dataFormatada = moment(colaborador.dataNascimento).format('DD/MM/YYYY');
+
         const nomeEhValido = (colaborador.nome).trim().length >= 5;
-        const dataNascEhValida = verificaData(dataNascimento)
+        const dataNascEhValida = verificaData(dataFormatada);
 
         const nome = colaborador.nome.trim();
 
@@ -37,7 +39,7 @@ class Colaborador {
             {
                 nome: 'dataNascimento',
                 valido: dataNascEhValida,
-                mensagem: `Data de Nascimento informado não é invalida: ${dataNascimento}`
+                mensagem: `Data de Nascimento informado não é invalida: ${dataFormatada}`
             }
 
         ]
@@ -102,11 +104,13 @@ class Colaborador {
     altera(id, valores, res) {
 
         valores.idCargo = parseInt(valores.idCargo);
-        valores.dataNascimento = moment(valores.dataNascimento, 'DD-MM-YYYY').format('DD/MM/YYYY');
+        valores.dataNascimento = moment(valores.dataNascimento, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
         // checando das um dos valores 
+        const dataFormatada = moment(valores.dataNascimento).format('DD/MM/YYYY');
+
         const nomeEhValido = (valores.nome).trim().length >= 5;
-        const dataNascEhValida = verificaData(valores.dataNascimento);
+        const dataNascEhValida = verificaData(dataFormatada);
         const cargoEhValido = Number.isInteger(valores.idCargo);
 
         const validacoes = [
@@ -118,7 +122,7 @@ class Colaborador {
             {
                 nome: 'dataNascimento',
                 valido: dataNascEhValida,
-                mensagem: `Data de nascimento informada não é invalida: ${valores.dataNascimento}`,
+                mensagem: `Data de nascimento informada não é invalida: ${dataFormatada}`,
             },
             {
                 nome: 'idCargo',
@@ -143,7 +147,7 @@ class Colaborador {
                 if (erro) {
                     res.status(400).json(erro);
                 } else {
-                    res.status(201).json({ ...valores, nome, id });
+                    res.status(201).json({ ...valores, id });
                 }
             })
         }

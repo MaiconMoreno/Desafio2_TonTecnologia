@@ -24,3 +24,4 @@ conexao.connect((erro => {
 );
 
 
+module.exports = app; 
